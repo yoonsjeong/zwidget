@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./zwidget.js"></script>
+</head>
+<body>
+
+    <h2>Message goes here</h2>
+    <h3>Visible Message</h3>
+    <input id="visible" type="text"><br>
+    <h3>Hidden Message</h3>
+    <input id="hidden" type="text">
+    <button id="encode" onclick="encode_script();">Encode</button>
+
+    <br>
+
+    <h2>Message out:</h2>
+    <input id="out" type="text">
+    <button id="decode" onclick="decode_script();">Decode</button>
+    <br><input id="surprise" type="text">
+
+</body>
+<script>
+    const visibleMsg = document.getElementById("visible");
+    const hiddenMsg = document.getElementById("hidden");
+    const outputMsg = document.getElementById("out");
+    const surpriseMsg = document.getElementById("surprise");
+    const [encode, decode] = document.querySelectorAll("button");
+
+    function encode_script() {
+        outputMsg.value = visibleMsg.value + encode_5bit(hiddenMsg.value);
+        // console.log(encode_5bit(inputMsg.value));
+    }
+    function decode_script() {
+        surprise.value = decode_5bit(outputMsg.value);
+    }
+</script>
+</html>
